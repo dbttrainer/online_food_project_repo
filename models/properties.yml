@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: src_raw
+    database: dbt_db
+    schema: raw
+    tables:
+      - name: raw_restaurants
+      - name: raw_cuisine
+      - name: raw_orders
+      - name: raw_customers
+
+models:
+  - name: dim_restaurants
+    columns:
+      - name: restaurant_id
+        description: Unique identifier for each restaurant.
+        tests:
+          - unique
+          - not_null
+      - name: city
+        description: City Name.
