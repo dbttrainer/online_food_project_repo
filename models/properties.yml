@@ -7,6 +7,14 @@ sources:
     tables:
       - name: raw_restaurants
       - name: raw_cuisine
+        freshness: 
+          error_after:
+            count: 2
+            period: day
+          warn_after:
+            count: 1
+            period: day
+        
       - name: raw_orders
       - name: raw_customers
 
